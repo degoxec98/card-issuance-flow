@@ -1,0 +1,21 @@
+import pino from "pino";
+
+export const logger = pino({
+  level: "info",
+  redact: {
+    paths: [
+      "*.cvv",
+      "*.cardNumber",
+      "*.fullCardNumber",
+      "card.cvv",
+      "card.number",
+      "req.headers.authorization",
+      "req.headers.cookie",
+    ],
+    censor: "[REDACTED]",
+  },
+  formatters: {
+    level: (label) => ({ level: label }),
+  },
+  timestamp: pino.stdTimeFunctions.isoTime,
+});

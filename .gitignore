@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.DS_Store
+junit.xml
+package-lock.json
+.build/

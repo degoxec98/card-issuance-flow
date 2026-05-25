@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "sourceMap": true
+  },
+  "include": ["test/**/*.test.ts", "*.js", ".*.js"]
+}
