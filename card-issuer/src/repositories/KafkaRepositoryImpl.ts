@@ -1,4 +1,4 @@
-import { Kafka, Producer } from "kafkajs";
+import { Producer } from "kafkajs";
 import { EventRepository } from "./EventRepository";
 import { logger } from "../commons/utils/Logger";
 import { Card } from "../domains/Cards";
@@ -8,7 +8,6 @@ import { buildCloudEvent } from "../commons/utils/events/cloud-event";
 import { randomUUID } from "crypto";
 
 export interface KafkaRepositoryProps {
-  kafka: Kafka;
   producer: Producer;
   config: {},
 }

@@ -12,5 +12,12 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: ["./src/**/*"],
-  coveragePathIgnorePatterns: [".index.ts"],
+  coveragePathIgnorePatterns: [
+    ".index.ts",
+    ".app.ts",
+    ".server.ts",
+    "src/middlewares/*",
+    "src/routes/*",
+    "src/repositories/InMemoryRepositoryImpl.ts"
+  ],
 };

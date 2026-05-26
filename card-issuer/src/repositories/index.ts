@@ -10,7 +10,6 @@ export const databaseRepo = new InMemoryDatabaseRepositoryImpl({
 })
 
 export const eventRepo = new KafkaRepositoryImpl({
-  kafka: new Kafka({ clientId, brokers, logLevel: logLevel.WARN }),
   producer: new Kafka({ clientId, brokers, logLevel: logLevel.WARN })
     .producer({
       allowAutoTopicCreation: false,

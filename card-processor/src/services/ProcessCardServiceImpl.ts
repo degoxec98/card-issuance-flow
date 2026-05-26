@@ -18,6 +18,14 @@ export interface ProcessCardServiceImplProps {
 export class ProcessCardServiceImpl implements ProcessCardService {
   constructor(private props: ProcessCardServiceImplProps) {}
 
+  protected getLatency(): number {
+    return 200 + Math.floor(Math.random() * 300);
+  }
+
+  protected getRandomErrorChance(): boolean {
+    return Math.random() > 0.5;
+  }
+
   private log = logger.child({ service: "ProcessCardServiceImpl" });
 
   async execute(data: CardRequestData, source: string): Promise<void> {
@@ -96,14 +104,13 @@ export class ProcessCardServiceImpl implements ProcessCardService {
     data: CardRequestData,
     attempt: number,
   ): Promise<Card> {
-    const latency = 200 + Math.floor(Math.random() * 300);
-    await new Promise((r) => setTimeout(r, latency));
+    await new Promise((r) => setTimeout(r, this.getLatency()));
     if (data.forceFailures && attempt < data.forceFailures) {
       throw new IssuanceError(
         `Forced failure by flag forceFailures (attempt ${attempt + 1}/${data.forceFailures})`,
       );
     }
-    if (Math.random() < 0.5 || data.forceError) {
+    if (this.getRandomErrorChance() || data.forceError) {
       throw new IssuanceError("External issuing service not available");
     }
     return Card.generate();

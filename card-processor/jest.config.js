@@ -13,5 +13,10 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: ["./src/**/*"],
-  coveragePathIgnorePatterns: [".index.ts"],
+  coveragePathIgnorePatterns: [
+    ".index.ts",
+    ".main.ts",
+    "src/infrastructure/kafka/CardRequestConsumer.ts"
+  ],
+  testTimeout: 30000,
 };

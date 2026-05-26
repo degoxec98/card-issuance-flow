@@ -1,5 +1,5 @@
 import { Producer } from "kafkajs";
-import { buildCloudEvent, CloudEvent } from "../commons/utils/events/cloud-event";
+import { buildCloudEvent } from "../commons/utils/events/cloud-event";
 import { CardIssuedData, CardDlqData, CardRequestData } from "../commons/utils/events/events";
 import { EventRepository } from "./EventRepository";
 import { logger } from "../commons/utils/Logger";

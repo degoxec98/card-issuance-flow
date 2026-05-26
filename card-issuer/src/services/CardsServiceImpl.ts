@@ -24,7 +24,7 @@ export class CardsServiceImpl implements CardsService {
       return issue;
     } catch (error) {
       logger.error(error, "Error issuing card");
-      throw new Error("Failed to issue card");
+      throw error;
     }
   }
 

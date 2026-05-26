@@ -1,7 +1,7 @@
-import { CardRequestData } from '../commons/utils/events/events';
-import { Card } from '../domains/Card';
-import { IssuedCardRecord } from '../domains/interfaces/IssuedCardRecord';
-import { DatabaseRepository } from './DatabaseRepository';
+import { CardRequestData } from "../commons/utils/events/events";
+import { Card } from "../domains/Card";
+import { IssuedCardRecord } from "../domains/interfaces/IssuedCardRecord";
+import { DatabaseRepository } from "./DatabaseRepository";
 
 export interface InMemoryDatabaseRepositoryImplProps {
   config: Record<string, unknown>;
